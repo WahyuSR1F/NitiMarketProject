@@ -22,7 +22,7 @@ class Auth extends Controller
         $validated =  $this->requestService->resolveAuth($method, $request);
         $authService = $this->auth->engine($method);
         $authService->login($validated);
-        return redirect()->route('dashboard');
+        return redirect()->route('admin.dashboard');
     }
 
 }

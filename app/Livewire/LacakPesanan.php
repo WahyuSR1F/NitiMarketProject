@@ -8,6 +8,6 @@ class LacakPesanan extends Component
 {
     public function render()
     {
-        return view('livewire.lacak-pesanan')->layout('layouts.app');
+        return view('livewire.lacak-pesanan')->layout('layouts.users');
     }
 }

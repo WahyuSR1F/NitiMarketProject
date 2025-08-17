@@ -10,7 +10,7 @@ class Lacak
     public function engine (string $method): \App\Repository\Logic\Interface\InterfaceLogic
     {
         return match ($method) {
-            'lacal' =>  new \App\Repository\Logic\Lacak\CodePemesanan(),
+            'lacak' =>  new \App\Repository\Logic\Lacak\CodePemesanan(),
             default => throw new \Exception('Unknown LoginRequest method'),
         };
     }

@@ -8,6 +8,6 @@ class ProductUnggulan extends Component
 {
     public function render()
     {
-        return view('livewire.product.product-unggulan')->layout('layouts.app');
+        return view('livewire.product.product-unggulan')->layout('layouts.users');
     }
 }

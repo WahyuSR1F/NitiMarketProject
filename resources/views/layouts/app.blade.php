@@ -19,6 +19,7 @@
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
             rel="stylesheet"
         />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         {{-- Custom Styles --}}
         <style>
@@ -74,22 +75,7 @@
     <body
         class="bg-[#f9fafb] text-[#152238] dark:bg-darkBg dark:text-darkText transition-colors duration-500"
     >
-        {{-- Untuk guest --}}
-        @guest
-        <x-navigation.navigation-menu />
-        <livewire:main-search />
-        @endguest
-
-        {{-- Untuk user login --}}
-        @auth @if(auth()->user()->role === 'admin')
-        <h1>LOGIN admin</h1>
-        @else
-        <livewire:admin.sidebar />
-        <livewire:admin.navbar-admin />
-        @endif @endauth @livewireStyles @livewireScripts @stack('scripts')
-
-        {{-- Main Content --}}
-        {{ $slot }}
+        @livewireStyles @livewireScripts @stack('scripts') @yield('layout-body')
 
         {{-- Footer --}}
         <footer
@@ -99,8 +85,6 @@
         </footer>
 
         {{-- Scripts --}}
-
-        {{-- SweetAlert2 --}}
         {{-- SweetAlert2 --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
@@ -132,56 +116,6 @@
                         icon: toastData.icon || "success",
                         title: toastData.title || "",
                     });
-                });
-            });
-        </script>
-
-        {{-- Dark Mode Toggle + Bounce Animation --}}
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const toggleBtn = document.getElementById("darkModeToggle");
-                const htmlEl = document.documentElement;
-
-                // Toggle login button animation
-                document
-                    .getElementById("loginBtn")
-                    ?.addEventListener("click", function () {
-                        const icon = document.getElementById("loginIcon");
-                        if (icon) {
-                            icon.classList.add("animate-login");
-                            setTimeout(
-                                () => icon.classList.remove("animate-login"),
-                                500
-                            );
-                        }
-                    });
-
-                // Dark mode init
-                function updateIcon() {
-                    toggleBtn.innerHTML = htmlEl.classList.contains("dark")
-                        ? '<i class="fas fa-sun"></i>'
-                        : '<i class="fas fa-moon"></i>';
-                }
-
-                if (
-                    localStorage.getItem("theme") === "dark" ||
-                    (!localStorage.getItem("theme") &&
-                        window.matchMedia("(prefers-color-scheme: dark)")
-                            .matches)
-                ) {
-                    htmlEl.classList.add("dark");
-                }
-
-                updateIcon();
-
-                // Toggle dark mode
-                toggleBtn?.addEventListener("click", () => {
-                    htmlEl.classList.toggle("dark");
-                    localStorage.setItem(
-                        "theme",
-                        htmlEl.classList.contains("dark") ? "dark" : "light"
-                    );
-                    updateIcon();
                 });
             });
         </script>

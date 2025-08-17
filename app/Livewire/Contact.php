@@ -10,6 +10,6 @@ class Contact extends Component
 {
     public function render()
     {
-        return view('livewire.contact')->layout('layouts.app');
+        return view('livewire.contact')->layout('layouts.users');
     }
 }

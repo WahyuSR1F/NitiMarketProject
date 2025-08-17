@@ -24,6 +24,6 @@ class Product extends Component
     {
         $data = new \App\Http\Controllers\Product();
         $data =  $data->getAll($this->search);
-        return view('livewire.product.product', ['products' =>  $data])->layout('layouts.app');
+        return view('livewire.product.product', ['products' =>  $data])->layout('layouts.users');
     }
 }

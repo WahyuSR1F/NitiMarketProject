@@ -10,11 +10,6 @@
             >
                 <i class="fas fa-bars fa-lg"> </i>
             </button>
-            <h1
-                class="text-2xl font-bold text-primary dark:text-primary-light select-none"
-            >
-                Dashboard
-            </h1>
         </div>
         <div class="flex items-center space-x-4 md:space-x-6">
             <button
@@ -61,23 +56,25 @@
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const toggle = document.getElementById("dropdownToggle");
-        const menu = document.getElementById("dropdownMenu");
-
-        toggle.addEventListener("click", function () {
-            menu.classList.toggle("hidden");
-        });
+        const menuSelector = "#dropdownMenu";
+        const toggleSelector = "#dropdownToggle";
 
         document.addEventListener("click", function (e) {
-            if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            const toggle = document.querySelector(toggleSelector);
+            const menu = document.querySelector(menuSelector);
+
+            if (!toggle || !menu) return;
+
+            // Kalau klik tombol toggle
+            if (toggle.contains(e.target)) {
+                menu.classList.toggle("hidden");
+                return;
+            }
+
+            // Kalau klik di luar menu + toggle → tutup
+            if (!menu.contains(e.target)) {
                 menu.classList.add("hidden");
             }
-        });
-    });
-
-    document.addEventListener("livewire:load", function () {
-        Livewire.on("redirectTo", (url) => {
-            window.location.href = url; // Smooth, tidak error Alpine.navigate
         });
     });
 </script>

@@ -10,6 +10,6 @@ class Landing extends Component
 {
     public function render()
     {
-        return view('livewire.landing')->layout('layouts.app');
+        return view('livewire.landing')->layout('layouts.users');
     }
 }

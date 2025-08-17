@@ -8,6 +8,6 @@ class KategoriProduct extends Component
 {
     public function render()
     {
-        return view('livewire.product.kategori-product')->layout('layouts.app');
+        return view('livewire.product.kategori-product')->layout('layouts.users');
     }
 }

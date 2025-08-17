@@ -8,6 +8,6 @@ class Promo extends Component
 {
     public function render()
     {
-        return view('livewire.promo')->layout('layouts.app');
+        return view('livewire.promo')->layout('layouts.users');
     }
 }
