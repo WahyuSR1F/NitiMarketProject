@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         $adminRole = Role::firstOrCreate(['role' => 'admin']);
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
             'role_id' => $adminRole->id
         ]);
     }

@@ -14,7 +14,7 @@ class KategoriSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
+        $items = [
             'Beras',
             'Minyak Goreng',
             'Gula',
@@ -29,31 +29,16 @@ class KategoriSeeder extends Seeder
             'Rokok',
         ];
 
-        foreach ($data as $nama) {
-            $data = [
-                'Beras',
-                'Minyak Goreng',
-                'Gula',
-                'Telur',
-                'Mie Instan',
-                'Bumbu Dapur',
-                'Makanan Kaleng',
-                'Tepung & Bahan Kue',
-                'Susu & Minuman',
-                'Sabun & Detergen',
-                'Gas LPG & Air Galon',
-                'Rokok',
-            ];
-    
-            foreach ($data as $nama) {
-                DB::table('kategoris')->insert([
-                    'id' => (string) Str::uuid(),
-                    'nama' => $nama,
-                    'slug' => Str::slug($nama), // otomatis ubah jadi format URL
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
-            }
-        }
+        $data = collect($items)->map(fn($nama) => [
+            'id' => (string) Str::uuid(),
+            'nama' => $nama,
+            'slug' => Str::slug($nama),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ])->toArray();
+
+        DB::table('kategoris')->insert($data);
     }
+
+
 }

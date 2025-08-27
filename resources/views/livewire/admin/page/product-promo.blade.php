@@ -265,3 +265,39 @@
         </div>
     </div>
 </div>
+
+<script>
+    (function () {
+        const ctx = document.getElementById("promoChart").getContext("2d");
+        const promoChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Promo A", "Promo B", "Promo C", "Promo D"],
+                datasets: [
+                    {
+                        label: "Jumlah Pengguna Promo",
+                        data: [150, 90, 120, 60],
+                        backgroundColor: "rgba(16, 185, 129, 0.7)",
+                        borderColor: "rgba(16, 185, 129, 1)",
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: "Promo Terpopuler",
+                        color: "#374151",
+                        font: { size: 16 },
+                    },
+                },
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 20 } },
+                },
+            },
+        });
+    })();
+</script>

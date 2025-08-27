@@ -35,6 +35,8 @@ Route::middleware(['auth'])
         Route::get('/', \App\Livewire\Admin\Dashboard::class)->name('dashboard');
         Route::get('/users', \App\Livewire\Admin\Page\KelolaUser::class)->name('users.index');
         Route::get('/product', \App\Livewire\Admin\Page\ProductAdmin::class)->name('product.index');
+        Route::get('/kasir', \App\Livewire\Admin\Page\KasirDigital::class)->name('kasir.index');
+        Route::get('/testimoni', \App\Livewire\Admin\Page\Testimoni::class)->name('terstimoni.index');
         Route::get('/packet', \App\Livewire\Admin\Page\PacketProduct::class)->name("packet.index");
         Route::get('/pesanan', \App\Livewire\Admin\Page\Pesanan::class)->name("pesanan.index");
         Route::get('/promo', \App\Livewire\Admin\Page\ProductPromo::class)->name("promo.index");

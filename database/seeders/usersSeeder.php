@@ -25,8 +25,8 @@ class usersSeeder extends Seeder
 
         // Buat 10.000 user dengan role member
         User::factory()
-            ->count(10_000)
-            ->create([
+            ->count(10000)
+            ->create([     // tambahkan ini supaya id terisi
                 'role_id' => $memberRole->id, // UUID valid dari tabel roles
             ]);
     }

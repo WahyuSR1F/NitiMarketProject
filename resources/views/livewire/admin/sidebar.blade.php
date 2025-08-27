@@ -21,6 +21,14 @@
                 </x-navigation.sub-navigation.nav-link-sidebar-admin>
 
                 <x-navigation.sub-navigation.nav-link-sidebar-admin
+                    href="{{ route('admin.kasir.index') }}"
+                    icon="fas fa-user-shield"
+                    :active="request()->routeIs('admin.kasir.index')"
+                >
+                    Kasir
+                </x-navigation.sub-navigation.nav-link-sidebar-admin>
+
+                <x-navigation.sub-navigation.nav-link-sidebar-admin
                     href="{{ route('admin.users.index') }}"
                     icon="fas fa-users"
                     :active="request()->routeIs('admin.users.index')"
@@ -58,6 +66,13 @@
                     :active="request()->routeIs('admin.pesanan.index')"
                 >
                     Kelola Pesanan
+                </x-navigation.sub-navigation.nav-link-sidebar-admin>
+                <x-navigation.sub-navigation.nav-link-sidebar-admin
+                    href="{{ route('admin.terstimoni.index') }}"
+                    icon="fas fa-shopping-basket"
+                    :active="request()->routeIs('admin.terstimoni.index')"
+                >
+                    Daftar Testimoni
                 </x-navigation.sub-navigation.nav-link-sidebar-admin>
             </div>
         </nav>

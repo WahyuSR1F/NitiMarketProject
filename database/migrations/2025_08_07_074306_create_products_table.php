@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->text('deskripsi')->nullable();
             $table->uuid('kategori_id'); // Foreign key
+            $table->string('harga');
             $table->string('asal');
             $table->string('product_by'); // Produk asal (misalnya kota atau negara asal)
             $table->timestamps();
@@ -25,7 +26,7 @@ return new class extends Migration
         });
     }
 
-    /**
+    /**c
      * Reverse the migrations.
      */
     public function down(): void

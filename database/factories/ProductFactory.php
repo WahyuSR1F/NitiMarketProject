@@ -31,6 +31,7 @@ class ProductFactory extends Factory
             'deskripsi' => $this->faker->sentence(),
             'kategori_id' => $kategoriId,
             'asal' => $this->faker->city(),
+            'harga' => (string) $this->faker->numberBetween(10000, 500000),
             'product_by' => $this->faker->company(),
             'created_at' => now(),
             'updated_at' => now(),

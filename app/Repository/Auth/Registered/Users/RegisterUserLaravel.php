@@ -13,12 +13,11 @@ class RegisterUserLaravel implements \App\Contracts\Auth\InterfaceRegister
 
     public function register (array $data)
     {
-        
         $user = \App\Models\User::create([
             'id' => \Illuminate\Support\Str::uuid(),
             'name' =>  $data['name'],
             'email' => $data['email'],
-            'nomer' => $data['nomer'],
+            'nomer' => '+'.$data['nomer'],
             'password' => \Illuminate\Support\Facades\Hash::make($data['password']),
             'role_id' => Role::where('role', 'member')->first()->id,
         ]);

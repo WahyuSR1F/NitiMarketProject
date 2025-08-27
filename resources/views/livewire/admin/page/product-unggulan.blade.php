@@ -261,40 +261,39 @@
 
 <!-- Chart.js -->
 <script>
-    const ctx = document.getElementById("featuredChart").getContext("2d");
-    const featuredChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: ["Produk A", "Produk B", "Produk C", "Produk D"],
-            datasets: [
-                {
-                    label: "Jumlah Pembeli",
-                    data: [120, 85, 95, 60],
-                    backgroundColor: "rgba(59, 130, 246, 0.7)",
-                    borderColor: "rgba(59, 130, 246, 1)",
-                    borderWidth: 1,
+    (function () {
+        const ctx = document.getElementById("featuredChart").getContext("2d");
+        const featuredChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Produk A", "Produk B", "Produk C", "Produk D"],
+                datasets: [
+                    {
+                        label: "Jumlah Pembeli",
+                        data: [120, 85, 95, 60],
+                        backgroundColor: "rgba(59, 130, 246, 0.7)",
+                        borderColor: "rgba(59, 130, 246, 1)",
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: "Produk Unggulan Terbaik",
+                        color: "#374151",
+                        font: { size: 16 },
+                    },
                 },
-            ],
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: "Produk Unggulan Terbaik",
-                    color: "#374151",
-                    font: { size: 16 },
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 20 } },
                 },
             },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: { stepSize: 20 },
-                },
-            },
-        },
-    });
+        });
+    })();
 
     function openCreateFeaturedModal() {
         const modal = document.getElementById("createFeaturedModal");

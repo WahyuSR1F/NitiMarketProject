@@ -149,17 +149,27 @@
         },
     });
 
-    function updateClock() {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, "0");
-        const minutes = String(now.getMinutes()).padStart(2, "0");
-        const seconds = String(now.getSeconds()).padStart(2, "0");
+    (function () {
+        let clockInterval;
 
-        document.getElementById(
-            "digitalClock"
-        ).textContent = `${hours}:${minutes}:${seconds}`;
-    }
+        function startClock() {
+            function updateClock() {
+                const clockEl = document.getElementById("digitalClock");
+                if (!clockEl) {
+                    clearInterval(clockInterval);
+                    return;
+                }
+                const now = new Date();
+                const h = String(now.getHours()).padStart(2, "0");
+                const m = String(now.getMinutes()).padStart(2, "0");
+                const s = String(now.getSeconds()).padStart(2, "0");
+                clockEl.textContent = `${h}:${m}:${s}`;
+            }
 
-    updateClock(); // panggil awal
-    setInterval(updateClock, 1000); // update tiap detik
+            updateClock();
+            clockInterval = setInterval(updateClock, 1000);
+        }
+
+        startClock();
+    })();
 </script>
